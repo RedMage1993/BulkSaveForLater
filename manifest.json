@@ -7,7 +7,8 @@
     {
       "run_at": "document_end",
       "matches": ["https://www.amazon.com/gp/cart/view.html/*"],
-      "js": ["js/jquery-3.2.1.min.js", "js/bulkSaveForLater.js"]
+      "js": ["js/jquery-3.2.1.min.js", "js/bulkSaveForLaterDriver.js"]
     }
-  ]
+  ],
+  "web_accessible_resources": ["js/bulkSaveForLater.js"]
 }

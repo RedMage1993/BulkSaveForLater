@@ -1,20 +1,13 @@
-$(document).ready(function() {
-  function injectLink() {
-    if ($("form#activeCartViewForm input[name=submit\\.save-all-for-later]").size) {
-      return;
-    }
+var amazonUIPage = window.AmazonUIPageJS || window.P;
 
-    var linkHTML =
-      "<div class=\"sc-action-links a-text-left a-float-left\">" +
-      "  <p class=\"a-spacing-none a-spacing-top-mini\">" +
-      "    <span class=\"a-size-medium\">" +
-      "      <input type=\"submit\" name=\"submit.save-all-for-later\" value=\"Save all for later\">" +
-      "    </span>" +
-      "  </p>" +
-      "</div>";
+amazonUIPage.when("jQuery", "CartBaseView", "ready").execute(function($, cartBaseView) {
+  $('form#activeCartViewForm input[name=submit\\.save-all-for-later]').click(function(ev) {
+    ev.preventDefault();
 
-    $("form#activeCartViewForm .sc-subtotal").after(linkHTML);
-  }
+    $("input[name^=submit\\.save-for-later]").each(function(index, saveForLaterLink) {
+      var $saveForLaterLink = $(saveForLaterLink);
 
-  injectLink();
+      console.log($saveForLaterLink.attr('name'));
+    });
+  });
 });
