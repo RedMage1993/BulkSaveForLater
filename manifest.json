@@ -6,7 +6,7 @@
   "content_scripts": [
     {
       "run_at": "document_end",
-      "matches": "https://www.amazon.com/gp/cart/view.html/*",
+      "matches": ["https://www.amazon.com/gp/cart/view.html/*"],
       "js": ["js/jquery-3.2.1.min.js", "js/bulkSaveForLater.js"]
     }
   ]
