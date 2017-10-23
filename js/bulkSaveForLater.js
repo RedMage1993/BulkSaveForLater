@@ -1,3 +1,6 @@
+// Alternatively, don't inject this JS to utilize Amazon's JS, and instead just click on the 'Save for later' elements.
+// I kind of just wanted to see if this would work, and it did.
+
 var amazonUIPage = window.AmazonUIPageJS || window.P;
 
 var bulkSaveForLaterIntervalID = 0;
