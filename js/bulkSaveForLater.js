@@ -10,6 +10,7 @@ function bulkSaveForLater($, cartBaseView) {
   if ($saveForLaterLinks.length == 0) {
     console.log("BulkSaveForLater: Done.");
     clearInterval(bulkSaveForLaterIntervalID);
+    bulkSaveForLaterIntervalID = 0;
     return;
   }
 
@@ -24,6 +25,12 @@ function bulkSaveForLater($, cartBaseView) {
 amazonUIPage.when("jQuery", "CartBaseView", "ready").execute(function($, cartBaseView) {
   $('form#activeCartViewForm input[name=submit\\.save-all-for-later]').click(function(ev) {
     ev.preventDefault();
+
+    // Alternatively, disable Save all for later button OR go nuts and create an interval for each item (???)
+    if (bulkSaveForLaterIntervalID != 0) {
+      return;
+    }
+
     console.log("BulkSaveForLater: Starting process.");
     bulkSaveForLaterIntervalID = setInterval(bulkSaveForLater, 1000, $, cartBaseView);
   });
